@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                tools:context="com.snowpuppet.alert.MainActivity">
+                tools:context=".activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/clock_container"
@@ -12,14 +12,37 @@
         <com.snowpuppet.alert.formclock.FormClockView
             app:elevation="4dp"
             android:layout_centerInParent="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </RelativeLayout>
     <View
+        android:id="@+id/divider"
         android:layout_toEndOf="@id/clock_container"
         android:layout_toRightOf="@id/clock_container"
         android:background="@color/clockBg"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="1dp"
         android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_toEndOf="@id/divider"
+        android:layout_toRightOf="@id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            app:fabSize="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_alarm_plus_white_24dp"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                tools:context="com.snowpuppet.alert.MainActivity">
+                tools:context=".activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/clock_container"
@@ -18,6 +18,8 @@
     <View
         android:layout_below="@id/clock_container"
         android:background="@color/clockBg"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 

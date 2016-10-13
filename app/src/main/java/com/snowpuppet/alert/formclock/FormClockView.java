@@ -74,7 +74,7 @@ public class FormClockView extends View {
         // Configure renderers
         mHourMinOptions = new FormClockRenderer.Options();
         mHourMinOptions.textSize = a.getDimension(R.styleable.FormClockView_textSize,
-                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 60,
+                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 55,
                         getResources().getDisplayMetrics()));
         mHourMinOptions.charSpacing = a.getDimension(R.styleable.FormClockView_charSpacing,
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8,
