@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                tools:context="com.snowpuppet.alert.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/clock_container"
+        android:layout_width="300dp"
+        android:layout_height="match_parent">
+        <com.snowpuppet.alert.formclock.FormClockView
+            app:elevation="4dp"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+    <View
+        android:layout_toEndOf="@id/clock_container"
+        android:layout_toRightOf="@id/clock_container"
+        android:background="@color/clockBg"
+        android:layout_width="1dp"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
