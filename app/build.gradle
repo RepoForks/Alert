@@ -24,4 +24,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+
+    compile('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.8.7@aar') {
+        transitive = true
+    }
 }
