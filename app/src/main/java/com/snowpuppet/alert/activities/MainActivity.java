@@ -1,23 +1,40 @@
 package com.snowpuppet.alert.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.snowpuppet.alert.R;
 import com.snowpuppet.alert.fragments.TimePickerFragment;
+import com.snowpuppet.alert.helpers.Constants;
+
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
+    MaterialTapTargetPrompt fabPrompt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences
+                (getApplicationContext());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,8 +46,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // if the user does not know how to go to settings page show prompt
+        if(sharedPreferences.getBoolean(Constants.SETTINGS_PREF,false)) {
+            showFabPrompt();
+        }
+
     }
 
+    private void showFabPrompt() {
+
+        // build a prompt to be shown to user
+        fabPrompt = new MaterialTapTargetPrompt.Builder(this)
+                .setTarget(R.id.fab)
+                .setBackgroundColour(getColorFromRes(getApplicationContext(),
+                        R.color.promptBg))
+                .setFocalColourFromRes(R.color.clockBg)
+                .setPrimaryText("Advanced Settings")
+                .setSecondaryText("long press to go to alarm settings")
+                .setOnHidePromptListener(new MaterialTapTargetPrompt.OnHidePromptListener() {
+
+                    @Override
+                    public void onHidePrompt(MotionEvent event, boolean
+                            tappedTarget) {
+
+                        // user has tapped inside the ring
+                        if(tappedTarget) {
+                            editor = sharedPreferences.edit();
+                            editor.putBoolean(Constants.SETTINGS_PREF, true);
+                            editor.apply();
+                        }
+                    }
+
+                    @Override
+                    public void onHidePromptComplete() {
+
+                    }
+                }).create();
+        fabPrompt.show();
+    }
+
+
+    private int getColorFromRes(Context context, int id) {
+        return ContextCompat.getColor(context,id);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

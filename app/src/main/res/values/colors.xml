@@ -7,6 +7,7 @@
 
     <color name="clockColor1">#dfdfdf</color>
     <color name="clockBg">#000c12</color>
+    <color name="promptBg">#00121b</color>
     <color name="dividerBg">#2fffffff</color>
 
 
