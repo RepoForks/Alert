@@ -1,7 +1,13 @@
 package com.snowpuppet.alert.activities;
 
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.snowpuppet.alert.R;
 import com.snowpuppet.alert.fragments.TimePickerFragment;
@@ -25,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    FloatingActionButton fab;
     MaterialTapTargetPrompt fabPrompt;
 
     @Override
@@ -35,14 +44,16 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences
                 (getApplicationContext());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TimePickerFragment mTimePickerFragment = new TimePickerFragment();
-                mTimePickerFragment.show(getSupportFragmentManager(),
-                        "timePicker");
+//                TimePickerFragment mTimePickerFragment = new TimePickerFragment();
+//                mTimePickerFragment.show(getSupportFragmentManager(),
+//                        "timePicker");
+
+
             }
         });
 
@@ -52,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
     private void showFabPrompt() {
 
