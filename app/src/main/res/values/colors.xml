@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#cccccc</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#00695C</color>
 
 
     <color name="clockColor1">#dfdfdf</color>
-    <color name="clockBg">#cccccc</color>
+    <color name="clockBg">#000c12</color>
+    <color name="dividerBg">#2fffffff</color>
 
 
 </resources>
